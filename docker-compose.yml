@@ -1,0 +1,14 @@
+version: "3.9"
+
+services:
+  lnibackupsbot:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    image: lnibackupsbot
+    command: node index.js
+    restart: unless-stopped
+    volumes:
+      - .:/app/src
+      - ./backups:/app/node_modules/discord-backup/lib/backups
+
