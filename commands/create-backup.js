@@ -8,7 +8,7 @@ exports.run = async (client, message, args) => {
         return message.channel.send(':x: You need to have the manage messages permissions to create a backup in this server.');
     }
 
-    backup.create(message.guild, {maxMessagesPerChannel: 50, jsonBeautify: false, backupMembers: true, saveImages: 'base64'}).then((backupData) => {
+    backup.create(message.guild, {maxMessagesPerChannel: 1000, jsonBeautify: false, backupMembers: true, saveImages: 'base64'}).then((backupData) => {
 
         return message.channel.send('Backup created! Here is your ID: `'+backupData.id+'`! Use `'+config.prefix+'load-backup '+backupData.id+'` to load the backup on another server!');
 
