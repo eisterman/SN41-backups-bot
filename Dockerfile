@@ -1,12 +1,14 @@
-FROM node:21-alpine3.17
+FROM node:22-alpine
 
 WORKDIR /app
 
 COPY package*.json .
 
-RUN npm install --no-package-lock
+ENV NODE_ENV=production
 
-WORKDIR /app/src
+RUN npm install
+
+COPY . .
 
 CMD ["node", "index.js"]
 

@@ -4,9 +4,7 @@ services:
       context: .
       dockerfile: ./Dockerfile
     image: lnibackupsbot
-    command: node index.js
     restart: unless-stopped
     volumes:
-      - .:/app/src
       - ./backups:/app/node_modules/discord-backup/lib/backups
 
